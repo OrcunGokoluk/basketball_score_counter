@@ -20,12 +20,13 @@ body{
 main {
 
     display: flex;
+    flex-wrap: wrap;
     padding: 2rem;
     justify-content: space-around;
     width: 36rem;
-    height: 24rem;
+    height: 35rem;
     background-color:#1B244A;
-    gap:3rem;
+    gap:1rem;
 }
 
 main section h3{
@@ -47,11 +48,12 @@ main section h3{
     height: 10rem;
     margin-top: 1rem;
     border-radius: 5px;
-    background-color: #080001;;
+    background-color: #080001;
+    border: 2px #9AABD8 solid;
 
 }
 
-.digital-number p
+#home-number, #guest-number
 {
     display: block;
     font-family: e1234;
@@ -61,6 +63,7 @@ main section h3{
 
     color: aqua;
 }
+
 .incrementor
 {
     margin-top: 1rem;
@@ -102,3 +105,72 @@ main section h3{
     height: 100%;
 }
 
+.counter-container
+{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: e1234;
+    font-size: 2rem;
+    font-weight: 400;
+    
+
+    color: aqua;
+}
+
+.home
+{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: 45%;
+
+}
+.guest
+{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: 45%;
+}
+
+#start-btn,#pause-btn
+{
+    margin-top: 1.5rem;
+    cursor: pointer;
+    align-items: center;
+    padding: 1rem;
+    font-size: large;
+    border-radius: 5px;
+    border: 2px #9AABD8 solid;
+    background-color: #1B244A;
+    opacity: 0px;
+    color:white;
+}
+
+#start-btn:hover,#pause-btn:hover
+{
+    background-color: #262f5a;
+}
+#start-btn:active,#pause-btn:active
+{
+    background-color: #1B244A;
+}
+
+
+.counter-buttons
+{
+    display: flex;
+    gap: .5rem;
+}
+
+.counter-frame
+{
+    background-color: #080001;
+    border: 2px #9AABD8 solid;
+    border-radius: 5px;
+    padding: 1rem;
+}

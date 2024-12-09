@@ -23,80 +23,36 @@ console.log(homeIncrementThree)
 homeIncrementOne.addEventListener("click",()=>
 {
     home+=1
-    if(home<10)
-    {
-        homeNumber.textContent="0"+home;
-    }
-    else
-    {
-        homeNumber.textContent=home;
-    }
+    home<10 ? homeNumber.textContent="0"+home :  homeNumber.textContent=home;
 })
 homeIncrementTwo.addEventListener("click",()=>
 {
     home+=2
-    if(home<10)
-        {
-            homeNumber.textContent="0"+home;
-        }
-        else
-        {
-            homeNumber.textContent=home;
-        }
+    home<10 ? homeNumber.textContent="0"+home :  homeNumber.textContent=home;
 })
 homeIncrementThree.addEventListener("click",()=>
 {
     home+=3
-    if(home<10)
-        {
-            homeNumber.textContent="0"+home;
-        }
-        else
-        {
-            homeNumber.textContent=home;
-        }
+    home<10 ? homeNumber.textContent="0"+home :  homeNumber.textContent=home;
 })
-
-
 guestIncrementOne.addEventListener("click",()=>
 {
     guest+=1
-    if(guest<10)
-    {
-        guestNumber.textContent="0"+guest;
-    }
-    else
-    {
-        guestNumber.textContent=guest;
-    }
+    guest<10 ? guestNumber.textContent="0"+guest : guestNumber.textContent=guest;
 })
 guestIncrementTwo.addEventListener("click",()=>
 {
     guest+=2
-    if(guest<10)
-        {
-            guestNumber.textContent="0"+guest;
-        }
-        else
-        {
-            guestNumber.textContent=guest;
-        }
+    guest<10 ? guestNumber.textContent="0"+guest : guestNumber.textContent=guest;
 })
 guestIncrementThree.addEventListener("click",()=>
 {
     guest+=3
-    if(guest<10)
-        {
-            guestNumber.textContent="0"+guest;
-        }
-        else
-        {
-            guestNumber.textContent=guest;
-        }
+    guest<10 ? guestNumber.textContent="0"+guest : guestNumber.textContent=guest;
 })
 
 let minutes=9;
-let seconds = 60; //eeminder: you should change the values inside the resetCountDown function too (line 184).
+let seconds = 60; //eeminder: you should change the values inside the resetCountDown function too (line 63).
 
 
 let quarterFinishCheck=false;
@@ -133,14 +89,11 @@ startButton.addEventListener("click",()=>{
 
             else if(seconds<0)
             {
-                seconds=59;
-        
+                seconds=59;        
                 minutes--;
             }
         
-            if(minutes>10&&quarterFinishCheck===false)
-            {   
-                
+            if(minutes>10&&quarterFinishCheck===false){   
                 seconds<10 ? counterNumber.innerText=`${minutes}:0${seconds}`:counterNumber.innerText=`${minutes}:${seconds}`;
             }
             else if(quarterFinishCheck===false){

@@ -2,6 +2,8 @@
 let guest=0;
 let home=0;
 let reset=false;
+let homeQuarterScorePoint=0;
+let guestQuarterScorePoint=0;
 
 const homeNumber=document.getElementById("home-number");
 const guestNumber=document.getElementById("guest-number");
@@ -15,6 +17,9 @@ const guestIncrementOne=document.querySelector("#guest-incrementor button:nth-ch
 const guestIncrementTwo=document.querySelector("#guest-incrementor button:nth-child(2) p")
 const guestIncrementThree=document.querySelector("#guest-incrementor button:nth-child(3) p")
 
+const homeQuarterScore=document.getElementById("home-quarter-score")
+const guestQuarterScore=document.getElementById("guest-quarter-score")
+
 const startButton=document.getElementById("start-btn");
 const pauseButton=document.getElementById("pause-btn");
 const resetButton=document.getElementById("reset-btn");
@@ -22,7 +27,6 @@ const resetButton=document.getElementById("reset-btn");
  resetButton.style.display="none"
 const counterNumber=document.getElementById("counter-number")
 
-console.log(homeIncrementThree)
 homeIncrementOne.addEventListener("click",()=>
 {
     home+=1
@@ -94,6 +98,7 @@ startButton.addEventListener("click",()=>{
                 resetCountDown();
             }
             else if (minutes<=0 && seconds<0) {
+                winnerDecider();
                 resetButton.style.display="none";
                 clearInterval(countdown);
                 resetCountDown();      
@@ -127,7 +132,27 @@ pauseButton.addEventListener("click",()=>{
     {
         if(reset==false)
         {
+            winnerDecider();
+            home=0;
+            guest=0;
+            guestNumber.textContent="0"+guest;
+            homeNumber.textContent="0"+home;
             reset=true;
             resetButton.style.display="none"
         }
     })
+
+    function winnerDecider()
+    {
+        if(home==guest)
+        {
+            return;
+        }
+        else{
+            home>guest? homeQuarterScorePoint++: guestQuarterScorePoint++;
+            home>guest? homeQuarterScore.textContent=homeQuarterScorePoint: guestQuarterScore.textContent=guestQuarterScorePoint;
+        }
+        
+    }
+
+

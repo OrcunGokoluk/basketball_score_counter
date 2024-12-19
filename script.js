@@ -1,6 +1,7 @@
 
 let guest=0;
 let home=0;
+let reset=false;
 
 const homeNumber=document.getElementById("home-number");
 const guestNumber=document.getElementById("guest-number");
@@ -16,7 +17,9 @@ const guestIncrementThree=document.querySelector("#guest-incrementor button:nth-
 
 const startButton=document.getElementById("start-btn");
 const pauseButton=document.getElementById("pause-btn");
+const resetButton=document.getElementById("reset-btn");
  pauseButton.style.display="none"
+ resetButton.style.display="none"
 const counterNumber=document.getElementById("counter-number")
 
 console.log(homeIncrementThree)
@@ -64,6 +67,7 @@ function resetCountDown()
     startButton.style.display="block";
     pauseButton.style.display="none";
     quarterFinishCheck=true;
+    clearInterval(countdown);
 }
 
 let isPaused=false;
@@ -74,19 +78,27 @@ startButton.addEventListener("click",()=>{
 
     startButton.style.display="none";
     pauseButton.style.display="block";
+    resetButton.style.display="block";
     
         const countdown = setInterval(() => {
+
         
+    
         if(isPaused==false)
         {
             seconds--;
-        
-            if (minutes<=0 && seconds<0) {
- 
+            if(reset===true)
+            {   
+                reset=false;
+                clearInterval(countdown);
+                resetCountDown();
+            }
+            else if (minutes<=0 && seconds<0) {
+                resetButton.style.display="none";
                 clearInterval(countdown);
                 resetCountDown();      
             }
-
+            
             else if(seconds<0)
             {
                 seconds=59;        
@@ -107,4 +119,15 @@ startButton.addEventListener("click",()=>{
 
 pauseButton.addEventListener("click",()=>{
    isPaused==true? isPaused=false:isPaused=true 
+   isPaused==true? resetButton.style.display="none":resetButton.style.display="block";
 })
+
+
+    resetButton.addEventListener("click", ()=>
+    {
+        if(reset==false)
+        {
+            reset=true;
+            resetButton.style.display="none"
+        }
+    })

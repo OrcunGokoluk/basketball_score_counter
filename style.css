@@ -137,7 +137,7 @@ main section h3{
     width: 45%;
 }
 
-#start-btn,#pause-btn
+#start-btn,#pause-btn,#reset-btn
 {
     margin-top: 1.5rem;
     cursor: pointer;
@@ -151,11 +151,11 @@ main section h3{
     color:white;
 }
 
-#start-btn:hover,#pause-btn:hover
+#start-btn:hover,#pause-btn:hover, #reset-btn:hover
 {
     background-color: #262f5a;
 }
-#start-btn:active,#pause-btn:active
+#start-btn:active,#pause-btn:active, #reset-btn:active
 {
     background-color: #1B244A;
 }
